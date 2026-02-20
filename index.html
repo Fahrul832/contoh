@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Untuk Kamu <3</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio id="bg-music"></audio>
+
+    <div id="app">
+      <button id="music-toggle" class="music-btn" onclick="toggleMusic()">
+        🎵
+      </button>
+
+      <div class="step active" id="step-passcode">
+        <img
+          src="https://media.tenor.com/tHqfQ0wZqE0AAAAi/bugcat-capoo.gif"
+          class="gif-cute"
+          alt="Nungguin"
+        />
+
+        <h2>Hai sayang, ayo tebak password-nya,<br />aku yakin kamu tahu!!</h2>
+
+        <div class="passcode-dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+
+        <p class="clue">petunjuk: tanggal lahirmu (hhbbtt)</p>
+
+        <div class="keypad">
+          <button onclick="pressKey('1')">1</button>
+          <button onclick="pressKey('2')">2</button>
+          <button onclick="pressKey('3')">3</button>
+          <button onclick="pressKey('4')">4</button>
+          <button onclick="pressKey('5')">5</button>
+          <button onclick="pressKey('6')">6</button>
+          <button onclick="pressKey('7')">7</button>
+          <button onclick="pressKey('8')">8</button>
+          <button onclick="pressKey('9')">9</button>
+          <div></div>
+          <button onclick="pressKey('0')">0</button>
+          <button onclick="deleteKey()" style="font-size: 1.2rem">⌫</button>
+        </div>
+      </div>
+
+      <div class="step" id="step-intro-1">
+        <img
+          src="https://media.tenor.com/PhsM2bQ9J7EAAAAi/bugcat-capoo.gif"
+          class="gif-cute"
+          alt="Sapaan"
+        />
+        <h2>hai, si cantik 🫶🏻👋🏻</h2>
+        <button class="btn-primary" onclick="nextStep('step-intro-2')">
+          ketuk di sini &lt;3
+        </button>
+      </div>
+
+      <div class="step" id="step-intro-2">
+        <img
+          src="https://media.tenor.com/aI3c9V2wIe8AAAAi/capoo-bugcat.gif"
+          class="gif-cute"
+          alt="Semangat"
+        />
+        <h2>kamu udah siap buat buka ini?</h2>
+        <div class="btn-group">
+          <button class="btn-primary" onclick="nextStep('step-intro-3')">
+            udahh
+          </button>
+          <button class="btn-secondary" onclick="nextStep('step-intro-no')">
+            belumm
+          </button>
+        </div>
+      </div>
+
+      <div class="step" id="step-intro-no">
+        <img
+          src="https://media.tenor.com/6X2Bq24c3nQAAAAi/capoo-mad.gif"
+          class="gif-cute"
+          alt="Marah"
+        />
+        <h2 style="color: #e74c3c">OH GITU SEKARANG SAMA AKU? 😡</h2>
+        <p style="font-size: 0.9rem">(bercanda sayang, ayo balik lagi :p)</p>
+        <button
+          class="btn-primary"
+          onclick="nextStep('step-intro-2')"
+          style="margin-top: 20px"
+        >
+          iyaa maap &lt;3
+        </button>
+      </div>
+
+      <div class="step" id="step-intro-3">
+        <img
+          src="https://media.tenor.com/FwW7iS6R0S4AAAAi/bugcat-capoo.gif"
+          class="gif-cute"
+          alt="Pesta"
+        />
+        <h2>
+          Hari ini, Fani pacar cantikku ulang tahun!<br />Selamat ulang tahun,
+          sayangku 🤍
+        </h2>
+        <button class="btn-primary" onclick="nextStep('step-intro-4')">
+          buka yuk &lt;3
+        </button>
+      </div>
+
+      <div class="step" id="step-intro-4">
+        <img
+          src="https://media.tenor.com/lP-Yl2l3_aQAAAAi/capoo-love.gif"
+          class="gif-cute"
+          alt="Cinta"
+        />
+        <h2>
+          oke satu lagi, aku buat sesuatu buat ulang tahunmu, bacanya
+          pelan-pelan yaa
+        </h2>
+        <button
+          class="btn-primary circle-btn"
+          onclick="nextStep('step-journey-1')"
+        >
+          🤍
+        </button>
+      </div>
+
+      <div class="step deco-container" id="step-journey-1">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1892/1892751.png"
+          class="icon-deco icon-flower"
+          alt="Bunga"
+        />
+
+        <img
+          src="assets/foto1.jpg"
+          class="photo-box"
+          alt="Kenangan 1"
+          onerror="
+            this.src = 'https://source.unsplash.com/random/300x300/?couple'
+          "
+        />
+        <p class="photo-text">
+          Ini foto pertama kita, momen yang bakal selalu aku ingat terus
+        </p>
+        <button class="btn-primary" onclick="nextStep('step-journey-2')">
+          klik ini &lt;3
+        </button>
+      </div>
+
+      <div class="step" id="step-journey-2">
+        <img
+          src="assets/foto2.jpg"
+          class="photo-box"
+          alt="Kenangan 2"
+          onerror="
+            this.src = 'https://source.unsplash.com/random/300x300/?smile'
+          "
+        />
+        <p class="photo-text">
+          Semoga kita terus buat kenangan bareng-bareng ya, dari yang kecil
+          sampai yang besar
+        </p>
+        <button class="btn-primary" onclick="nextStep('step-journey-3')">
+          klik ini &lt;3
+        </button>
+      </div>
+
+      <div class="step" id="step-journey-3">
+        <img
+          src="assets/foto3.jpg"
+          class="photo-box"
+          alt="Kenangan 3"
+          onerror="
+            this.src = 'https://source.unsplash.com/random/300x300/?love'
+          "
+        />
+        <p class="photo-text">
+          Kamu pantas dapetin seluruh dunia, dan aku bakal selalu sayang kamu
+        </p>
+        <button class="btn-primary" onclick="nextStep('step-spotify')">
+          lagu kita 🎵
+        </button>
+      </div>
+
+      <div class="step" id="step-spotify">
+        <div class="spotify-container">
+          <div class="spotify-header">
+            <img
+              src="assets/cover1.jpg"
+              id="spotify-cover"
+              class="album-art"
+              alt="Album"
+              onerror="this.style.backgroundColor = '#eab8c6'"
+            />
+            <div class="spotify-info">
+              <h2 class="spotify-title" id="spotify-title">Perfect</h2>
+              <p id="spotify-artist">Ed Sheeran</p>
+              <span class="save-btn">⊕ Simpan di Spotify</span>
+            </div>
+          </div>
+
+          <div class="spotify-player">
+            <div class="controls">
+              <span onclick="prevSong()">⏮</span>
+              <span class="play-btn" id="play-icon" onclick="toggleMusic()"
+                >▶</span
+              >
+              <span onclick="nextSong()">⏭</span>
+            </div>
+          </div>
+
+          <div class="song-list">
+            <div class="song-item active" onclick="selectSong(0)">
+              <div class="num">1</div>
+              <div class="title">
+                <h4>Everythin U Are</h4>
+                <p>Hindia</p>
+              </div>
+              <div class="time">03:30</div>
+            </div>
+            <div class="song-item" onclick="selectSong(1)">
+              <div class="num">2</div>
+              <div class="title">
+                <h4>Kota Ini Tak Sama Tanpamu</h4>
+                <p>Nadhif Basalamah</p>
+              </div>
+              <div class="time">04:27</div>
+            </div>
+            <div class="song-item" onclick="selectSong(2)">
+              <div class="num">3</div>
+              <div class="title">
+                <h4>Hanya Rindu</h4>
+                <p>Andmesh</p>
+              </div>
+              <div class="time">04:15</div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="btn-primary"
+          style="margin-top: 20px"
+          onclick="startFinalMessage()"
+        >
+          Lanjut ➔
+        </button>
+      </div>
+
+      <div class="step deco-container" id="step-final">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3659/3659937.png"
+          class="icon-deco icon-camera"
+          alt="Kamera"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2405/2405451.png"
+          class="icon-deco icon-drink"
+          alt="Minuman"
+        />
+
+        <img
+          src="https://media.tenor.com/N2c42XWqVzAAAAAi/bugcat-capoo.gif"
+          class="gif-cute"
+          id="final-gif"
+          alt="Perayaan"
+        />
+
+        <h2 class="final-title">Selamat ulang tahun, sayangku 🤍🤍</h2>
+
+        <div class="typing-container">
+          <p id="final-text" class="hidden-text">
+            Di hari spesialmu ini, aku cuma mau ngingetin seberapa bersyukurnya
+            aku punya kamu di hidupku, Fani. Makasih ya udah jadi orang yang
+            luar biasa—baik, penyayang, dan selalu bikin suasana jadi lebih
+            hangat cuma dengan kehadiranmu. Aku harap di umur yang baru ini kamu
+            dikasih banyak kebahagiaan, kedamaian, dan semua hal baik yang kamu
+            semogakan. Semoga setiap langkahmu terasa lebih ringan, dan kamu
+            selalu dikelilingi oleh cinta. Kamu pantas dapat lebih dari yang
+            kamu tahu. Aku bersyukur bisa merayakan hari ini sama kamu, dan
+            semoga hari-hari setelah ini kita bisa terus bareng, tumbuh bareng,
+            dan saling sayang. Sekali lagi, selamat ulang tahun sayang! Dari
+            Fahrul. 🤍✨
+          </p>
+          <div id="typewriter"></div>
+        </div>
+
+        <button
+          class="btn-primary final-btn hidden"
+          id="btn-restart"
+          onclick="location.reload()"
+        >
+          Ulangi dari Awal ↺
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

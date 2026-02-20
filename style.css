@@ -1,0 +1,459 @@
+/* --- PENGATURAN WARNA UTAMA --- */
+:root {
+  --bg-color: #f6f8fb;
+  --app-bg: #ffffff;
+  --text-main: #1d2b45;
+  --text-muted: #6e7c97;
+  --primary: #2956e1;
+  --primary-hover: #1b3cb0;
+  --secondary: #eef2fa;
+}
+
+/* --- RESET DASAR --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* --- CONTAINER HP (MOCKUP APLIKASI) --- */
+#app {
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background-color: var(--app-bg);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tombol Putar Musik */
+.music-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--secondary);
+  color: var(--primary);
+  font-size: 1.2rem;
+  z-index: 100;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- PENGATURAN LAYAR / SCENE --- */
+.step {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 30px 20px;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+.step.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- TEKS & GAMBAR (GIF KUCING MELAYANG) --- */
+h2 {
+  color: var(--text-main);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+@keyframes floatGif {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.gif-cute {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  animation: floatGif 2.5s ease-in-out infinite;
+}
+
+#final-gif {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 5px;
+}
+
+/* --- TOMBOL --- */
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 8px 15px rgba(41, 86, 225, 0.2);
+  z-index: 2;
+  position: relative;
+}
+.btn-primary:active {
+  transform: scale(0.95);
+}
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--text-main);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-group {
+  display: flex;
+  gap: 15px;
+}
+.circle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- LAYAR PASSWORD --- */
+.passcode-dots {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  transition: 0.3s;
+}
+.dot.filled {
+  background-color: var(--primary);
+}
+.dot.error {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+  animation: shake 0.4s;
+}
+
+.clue {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 80%;
+  margin: 0 auto;
+}
+.keypad button {
+  background: white;
+  border: none;
+  border-radius: 15px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.keypad button:active {
+  background: var(--secondary);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+/* --- LAYAR PERJALANAN (FOTO) --- */
+.photo-box {
+  width: 100%;
+  max-width: 280px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+.photo-text {
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  z-index: 2;
+  position: relative;
+}
+
+/* --- TAMPILAN SPOTIFY --- */
+.spotify-container {
+  background: #603a45;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  color: white;
+  text-align: left;
+  margin-top: 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.spotify-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.album-art {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  background-color: #eab8c6;
+}
+.spotify-title {
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+  color: #ffffff !important;
+}
+.spotify-info p {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #ffffff;
+  opacity: 0.8;
+}
+.save-btn {
+  border: 1px solid white;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+.spotify-player {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+.play-btn {
+  background: white;
+  color: #603a45;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: white;
+}
+.song-item {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  border-radius: 8px;
+  padding: 5px;
+}
+.song-item.active {
+  opacity: 1;
+}
+.song-item:active {
+  transform: scale(0.98);
+}
+.song-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.song-item .num {
+  width: 30px;
+  font-weight: bold;
+}
+.song-item .title {
+  flex: 1;
+}
+.song-item .title h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+}
+.song-item .title p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: white;
+  opacity: 0.8;
+}
+.controls span {
+  transition: transform 0.2s;
+}
+.controls span:active {
+  transform: scale(0.8);
+  opacity: 0.7;
+}
+
+/* --- PESAN TERAKHIR & EFEK KETIK --- */
+.final-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+.typing-container {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  width: 100%;
+  line-height: 1.8;
+  color: var(--text-main);
+  font-weight: 500;
+  z-index: 2;
+  position: relative;
+  max-height: 45vh;
+  overflow-y: auto;
+}
+.hidden-text {
+  display: none;
+}
+.final-btn {
+  margin-top: 30px;
+  z-index: 2;
+  position: relative;
+  width: 80%;
+}
+.final-btn.hidden {
+  display: none;
+}
+
+/* Animasi Partikel Emoji */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  z-index: 3;
+  font-size: 1.5rem;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   STIKER / IKON DEKORASI
+========================================= */
+.deco-container {
+  position: relative;
+  overflow: hidden;
+}
+.icon-deco {
+  position: absolute;
+  z-index: 0;
+  filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  opacity: 0.9;
+}
+.icon-flower {
+  width: 80px;
+  top: 40px;
+  right: -15px;
+  transform: rotate(15deg);
+}
+.icon-camera {
+  width: 90px;
+  bottom: 110px;
+  left: -10px;
+  transform: rotate(-15deg);
+}
+.icon-drink {
+  width: 60px;
+  top: 80px;
+  right: 10px;
+  transform: rotate(10deg);
+}
